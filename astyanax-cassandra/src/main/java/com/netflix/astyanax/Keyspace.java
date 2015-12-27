@@ -187,7 +187,7 @@ public interface Keyspace {
     OperationResult<Void> truncateColumnFamily(String columnFamily) throws ConnectionException;
 
     /**
-     * Experimental Cassandra API.  May change without warning.
+     * [BV] Experimental Cassandra API.  May change without warning.
      *
      * @return A list of tokens, where each range query from {@code tokens[n]} to {@code tokens[n+1]} will return
      *    approximately {@code keysPerSplit} rows.
@@ -196,7 +196,7 @@ public interface Keyspace {
             throws ConnectionException;
 
     /**
-     * Experimental Cassandra API added.  May change without warning.
+     * [BV] Experimental Cassandra API added.  May change without warning.
      *
      * @return A list of column family splits, where each range query from {@code split.getStartToken()} to
      * {@code split.getEndToken()} will return approximately {@code split.getRowCount()} rows where the latter
@@ -208,7 +208,7 @@ public interface Keyspace {
             throws ConnectionException;
 
     /**
-     * This is an overloaded method of {@code describeSplitsEx}, which can be used for OrderedPartitioners.
+     * [BV] This is an overloaded method of {@code describeSplitsEx}, which can be used for OrderedPartitioners.
      * This method allows for passing a rowKey for ensuring token-aware connections.
      */
     List<CfSplit> describeSplitsEx(String cfName, String startToken, String endToken, int keysPerSplit,
