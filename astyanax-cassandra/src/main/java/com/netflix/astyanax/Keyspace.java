@@ -127,7 +127,7 @@ public interface Keyspace {
      * a call to the Cassandra cluster and is therefore cached to reduce load on
      * Cassandra and since this data rarely changes.
      * 
-     * @param columnFamily
+     * @param cfName
      * @param ignoreErrors
      * @throws ConnectionException
      */
@@ -187,7 +187,7 @@ public interface Keyspace {
     OperationResult<Void> truncateColumnFamily(String columnFamily) throws ConnectionException;
 
     /**
-     * Experimental Cassandra API.  May change without warning.
+     * [BV] Experimental Cassandra API.  May change without warning.
      *
      * @return A list of tokens, where each range query from {@code tokens[n]} to {@code tokens[n+1]} will return
      *    approximately {@code keysPerSplit} rows.
@@ -196,7 +196,7 @@ public interface Keyspace {
             throws ConnectionException;
 
     /**
-     * Experimental Cassandra API added.  May change without warning.
+     * [BV] Experimental Cassandra API added.  May change without warning.
      *
      * @return A list of column family splits, where each range query from {@code split.getStartToken()} to
      * {@code split.getEndToken()} will return approximately {@code split.getRowCount()} rows where the latter
@@ -208,7 +208,7 @@ public interface Keyspace {
             throws ConnectionException;
 
     /**
-     * This is an overloaded method of {@code describeSplitsEx}, which can be used for OrderedPartitioners.
+     * [BV] This is an overloaded method of {@code describeSplitsEx}, which can be used for OrderedPartitioners.
      * This method allows for passing a rowKey for ensuring token-aware connections.
      */
     List<CfSplit> describeSplitsEx(String cfName, String startToken, String endToken, int keysPerSplit,
@@ -273,7 +273,7 @@ public interface Keyspace {
     
     /**
      * Update the column family definition from a map of string to object
-     * @param props
+     * @param options
      * @throws ConnectionException
      */
     OperationResult<SchemaChangeResult> updateColumnFamily(Map<String, Object> options) throws ConnectionException;

@@ -2,6 +2,9 @@ package com.netflix.astyanax.partitioner;
 
 import org.apache.cassandra.dht.Token;
 
+/**
+ * [BV] Class added by Bazaarvoice to better compare tokens in the context of Byte Ordered Partitioner
+ */
 public class TokenRingPosition implements RingPosition {
     private final Token _token;
 

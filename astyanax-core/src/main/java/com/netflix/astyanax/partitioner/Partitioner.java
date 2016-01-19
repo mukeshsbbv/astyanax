@@ -50,14 +50,14 @@ public interface Partitioner {
     String getTokenForKey(ByteBuffer key);
 
     /**
-     * Return the ring position for the specified key
+     * [BV] Return the ring position for the specified key
      * @param key
      * @return
      */
     RingPosition getRingPositionForKey(ByteBuffer key);
 
     /**
-     * Return the ring position for the specified token
+     * [BV] Return the ring position for the specified token
      * @param token
      * @return
      */
