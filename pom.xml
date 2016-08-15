@@ -4,8 +4,8 @@
 
     <parent>
         <groupId>com.bazaarvoice.commons</groupId>
-        <artifactId>bv-super-pom</artifactId>
-        <version>1.10</version>
+        <artifactId>bv-opensource-super-pom</artifactId>
+        <version>1.4</version>
         <relativePath />
     </parent>
 
@@ -183,6 +183,25 @@
                     <releaseVersion>${next.release.version}</releaseVersion>
                     <developmentVersion>${next.development.version}</developmentVersion>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <configuration>
+                    <!--
+                        Default configuration skips dependency checks to reduce build time.  A build should be performed
+                        with dependency checks enabled after any dependencies are added or updated to get a list
+                        of known vulnerabilities that may have been introduced with the change.
+                    -->
+                    <skip>${skipDependencyChecks}</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
