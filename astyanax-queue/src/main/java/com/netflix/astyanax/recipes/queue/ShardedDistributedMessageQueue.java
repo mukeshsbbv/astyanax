@@ -3,10 +3,10 @@ package com.netflix.astyanax.recipes.queue;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Callable;
@@ -346,7 +346,7 @@ public class ShardedDistributedMessageQueue implements MessageQueue {
                                                             };
 
     final MessageQueueStats               stats;
-    final AtomicLong                      counter             = new AtomicLong(new Random().nextInt(1000));
+    final AtomicLong                      counter             = new AtomicLong(new SecureRandom().nextInt(1000));
 
     private ShardedDistributedMessageQueue(Builder builder) throws MessageQueueException {
         this.queueColumnFamily    = ColumnFamily.newColumnFamily(builder.columnFamilyName + DEFAULT_QUEUE_SUFFIX,    StringSerializer.get(), entrySerializer);
